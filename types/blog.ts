@@ -55,7 +55,7 @@ export interface quote {
 
 export interface list {
     type: 'list';
-    content: string[];
+    content: content[];
     ordered: boolean;
 }
 

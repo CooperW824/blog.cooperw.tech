@@ -66,12 +66,12 @@ export const testBlog: Blog = {
         },
         {
             type: 'list',
-            content: ['This', 'is', 'a', 'list'],
+            content: [{type: 'paragraph', content: 'This is a list item'}, {type: 'paragraph', content: 'This is another list item'}],
             ordered: false
         },
         {
             type: 'list',
-            content: ['This', 'is', 'a', 'list'],
+            content: [{type: 'paragraph', content: 'This is a list item'}, {type: 'paragraph', content: 'This is another list item'}],
             ordered: true
         },
         {
