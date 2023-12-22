@@ -1,6 +1,6 @@
 <template>
     <div class="flex w-full items-center justify-center flex-col my-4">
-        <NuxtImg :src="img.src" :alt="img.alt" ></NuxtImg>
+        <NuxtImg :src="img.src" :alt="img.alt" class="w-full"></NuxtImg>
         <p class="mt-1">{{ img.caption }}</p>
     </div>
 </template>

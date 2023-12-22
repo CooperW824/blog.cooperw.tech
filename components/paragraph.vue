@@ -1,5 +1,5 @@
 <template>
-    <p class="pl-2">{{ text }}</p>
+    <p class="pl-2 h-fit  w-full">{{ text }}</p>
 </template>
 
 <script setup lang="ts">

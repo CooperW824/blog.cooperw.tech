@@ -1,10 +1,10 @@
 <template>
-	<div class="flex flex-col w-full sm:w-11/12 lg:w-1/2 h-full">
-		<div class="flex items-center">
+	<div class="flex flex-col w-full sm:w-11/12 lg:w-1/2 h-full ">
+		<div class="flex w-full items-center">
 			<ArticleHeader :blog-head="blog.head" />
 		</div>
-		<div class="flex flex-col items-start ml-2">
-			<Content v-for="content in blog.body" :content="content" />
+		<div class="flex flex-col w-full items-start px-4 just ">
+			<Content  v-for="content in blog.body" :content="content" />
 		</div>
 	</div>
 </template>

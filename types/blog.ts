@@ -1,5 +1,4 @@
 export interface Blog {
-    id: string;
     head: BlogHead;
     body: Content[];
 }
@@ -10,6 +9,7 @@ export interface BlogHead {
     description: string;
     tags: string[];
     date: string;
+    id: string;
     author: string;
 }
 

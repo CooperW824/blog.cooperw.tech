@@ -1,6 +1,6 @@
 <template>
 	<div class="flex items-center justify-center w-full my-2">
-		<embed :src="content.src" :title="content.src" class="w-full aspect-video" />
+		<embed :src="content.src" :title="content.src" class="w-full aspect-video " />
 	</div>
 </template>
 

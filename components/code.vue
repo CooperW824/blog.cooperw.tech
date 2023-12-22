@@ -1,11 +1,13 @@
 <template>
-    <div class="flex flex-col  w-full h-fit items-center justify-center">
-        <div class="flex w-11/12 h-8 bg-base-200 justify-between items-center rounded-t-lg px-4">
+    <div class="flex flex-col w-full h-fit items-center justify-center">
+        <div class="flex w-full h-8 bg-base-200 justify-between items-center rounded-t-lg px-4">
             <p class=""> {{ content.language }}</p>
-            <button @click="handleCopy"> Copy Code</button>
+            <button @click="handleCopy"> 
+                <font-awesome-icon :icon="['fas', 'copy']" class="w-4" />
+            </button>
         </div>
-        <div class="flex w-11/12 h-fit bg-base-300 font-mono rounded-b-lg px-4">
-            <p> {{ content.content }}</p>
+        <div class="flex w-full h-fit bg-base-300 font-mono rounded-b-lg px-4 overflow-x-auto">
+            <p class="whitespace-pre my-4"> {{ content.content }}</p>
         </div>
     </div>
 </template>
