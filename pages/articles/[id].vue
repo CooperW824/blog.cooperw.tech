@@ -1,32 +1,15 @@
 <template>
-    <ClientOnly>
-        <ArticleHeader/>
-        <div v-for="component in testBlog.body">
-            <Paragraph v-if="component.type === 'paragraph' "/>
-            <Heading v-if="component.type === 'heading' "/>
-            <Code v-if="component.type === 'code' "/>
-            <Quote v-if="component.type === 'quote' "/>
-            <Image v-if="component.type === 'image' "/>
-            <Iframe v-if="component.type === 'iframe' "/>
-            <Embed v-if="component.type === 'embed' "/>
-            <List v-if="component.type === 'list' "/>
-            <Link v-if="component.type === 'link' "/>
-        </div>
-    </ClientOnly>
+	<div class="flex flex-col w-full sm:w-11/12 lg:w-3/4 h-full items-center">
+		<ArticleHeader :blog-head="blog.head" />
+		<Content v-for="content in blog.body" :content="content" />
+	</div>
 </template>
 
-<script
-    setup
-    lang="ts"
->
-import { testBlog } from "../../types/testblog";
-import type { Blog } from "../../types/blog";
-import Link from "../../components/link.vue";
+<script setup lang="ts">
+import { testBlog } from '../../types/testblog';
+import type { Blog } from '../../types/blog';
 
 const route = useRoute();
 const id = ref(route.params.id);
 const blog = ref<Blog>(testBlog);
-
-
-
 </script>

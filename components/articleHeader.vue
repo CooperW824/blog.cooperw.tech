@@ -1,5 +1,29 @@
 <template>
-    <h1>
-     Article Head component
-    </h1>
- </template>
+	<div class="flex flex-col items-center justify-center">
+		<h1
+			class="text-4xl h-fit font-heading text-center font-sans font-semibold py-2 bg-clip-text bg-gradient-to-r from-primary to-accent text-transparent flex items-center justify-center mx-2"
+		>
+			{{ blogHead.title }}
+		</h1>
+		<NuxtImg :src="blogHead.picture" class="w-full max-h-48"></NuxtImg>
+		<div class="flex w-11/12 sm:w-full h-8 items-center justify-center sm:justify-start">
+			<p class="mr-4 text-primary">{{ blogHead.author }}</p>
+			<p class="text-primary">{{ new Date(blogHead.date).toDateString() }}</p>
+		</div>
+		<div class="flex w-11/12 sm:w-full h-fit flex-wrap justify-center items-center my-1">
+			<p class="mr-1">Tags:</p>
+			<p class="m-1 px-4 py-1 bg-base-200 rounded-lg" v-for="tag in blogHead.tags" :key="tag">{{ tag }}</p>
+		</div>
+		<hr class="h-0.5 bg-secondary my-1 w-11/12 border-none rounded-sm" />
+		<p class="text-center w-11/12 sm:w-full">{{ blogHead.description }}</p>
+		<hr class="h-0.5 bg-secondary my-1 w-11/12 border-none rounded-sm" />
+	</div>
+</template>
+
+<script setup lang="ts">
+import { defineProps, ref } from 'vue';
+import type { BlogHead } from '~/types/blog';
+
+const props = defineProps<{ blogHead: BlogHead }>();
+const blogHead = ref(props.blogHead);
+</script>

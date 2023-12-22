@@ -1,17 +1,19 @@
 export interface Blog {
     id: string;
-    head: {
-        title: string;
-        picture: string;
-        description: string;
-        tags: string[];
-        date: string;
-        author: string;
-    };
-    body: content[];
+    head: BlogHead;
+    body: Content[];
 }
 
-export type content = paragraph | heading | image | iframe | embed | code | quote | list | link;
+export interface BlogHead {
+    title: string;
+    picture: string;
+    description: string;
+    tags: string[];
+    date: string;
+    author: string;
+}
+
+export type Content = paragraph | heading | image | iframe | embed | code | quote | list | link;
 
 export interface paragraph {
     type: 'paragraph';
@@ -55,7 +57,7 @@ export interface quote {
 
 export interface list {
     type: 'list';
-    content: content[];
+    content: Content[];
     ordered: boolean;
 }
 

@@ -11,8 +11,7 @@ module.exports = {
 	theme: {
 		extend: {
 			fontFamily: {
-				paragraph: ['Nunito', 'Poppins', 'sans-serif'],
-				heading: ['Poppins', 'sans-serif'],
+				paragraph: ['Nunito', 'sans-serif'],
 			},
 		},
 	},
