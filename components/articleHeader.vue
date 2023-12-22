@@ -1,5 +1,5 @@
 <template>
-	<div class="flex flex-col items-center justify-center">
+	<div class="flex flex-col items-center justify-center" id="top">
 		<h1
 			class="text-4xl h-fit font-heading text-center font-sans font-semibold py-2 bg-clip-text bg-gradient-to-r from-primary to-accent text-transparent flex items-center justify-center mx-2"
 		>
