@@ -13,7 +13,7 @@ export interface BlogHead {
     author: string;
 }
 
-export type Content = paragraph | heading | image | iframe | embed | code | quote | list | link;
+export type Content = paragraph | heading | image  | embed | code | quote | list | link;
 
 export interface paragraph {
     type: 'paragraph';
@@ -30,12 +30,7 @@ export interface image {
     type: 'image';
     src: string;
     alt: string;
-}
-
-export interface iframe {
-    type: 'iframe';
-    src: string;
-    title: string;
+    caption: string;
 }
 
 export interface embed {

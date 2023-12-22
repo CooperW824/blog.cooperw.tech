@@ -1,5 +1,12 @@
 <template>
-    <h1>
-     Embed component
-    </h1>
+	<div class="flex items-center justify-center w-full my-2">
+		<embed :src="content.src" :title="content.src" class="w-full aspect-video" />
+	</div>
 </template>
+
+<script setup lang="ts">
+import { defineProps } from 'vue';
+import { type embed } from '~/types/blog';
+const props = defineProps<{ content: embed }>();
+const content = ref(props.content);
+</script>

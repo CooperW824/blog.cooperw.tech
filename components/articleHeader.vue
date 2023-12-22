@@ -14,9 +14,9 @@
 			<p class="mr-1">Tags:</p>
 			<p class="m-1 px-4 py-1 bg-base-200 rounded-lg" v-for="tag in blogHead.tags" :key="tag">{{ tag }}</p>
 		</div>
-		<hr class="h-0.5 bg-secondary my-1 w-11/12 border-none rounded-sm" />
-		<p class="text-center w-11/12 sm:w-full">{{ blogHead.description }}</p>
-		<hr class="h-0.5 bg-secondary my-1 w-11/12 border-none rounded-sm" />
+		<hr class="h-0.5 bg-secondary my-1 w-11/12 sm:w-full border-none rounded-sm" />
+		<p class="text-left w-11/12 sm:w-full px-2">{{ blogHead.description }}</p>
+		<hr class="h-0.5 bg-secondary my-1 w-11/12 sm:w-full border-none rounded-sm" />
 	</div>
 </template>
 

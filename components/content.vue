@@ -1,12 +1,11 @@
 <template>
 	<ClientOnly>
-		<Paragraph v-if="component.type === 'paragraph'" />
-		<Heading v-if="component.type === 'heading'" />
-		<Code v-if="component.type === 'code'" />
+		<Paragraph v-if="component.type === 'paragraph'" :content="(component as paragraph)" />
+		<Heading v-if="component.type === 'heading'" :content="(component as heading)" />
+		<Code v-if="component.type === 'code'" :content="(component as code)" />
 		<Quote v-if="component.type === 'quote'" />
-		<Image v-if="component.type === 'image'" />
-		<Iframe v-if="component.type === 'iframe'" />
-		<Embed v-if="component.type === 'embed'" />
+		<Image v-if="component.type === 'image'" :content="(component as image)" />
+		<Embed v-if="component.type === 'embed'" :content="(component as embed)" />
 		<List v-if="component.type === 'list'" />
 		<Link v-if="component.type === 'link'" />
 	</ClientOnly>
@@ -14,10 +13,9 @@
 
 <script setup lang="ts">
 import { defineProps } from 'vue';
-import type { Content } from '../types/blog';
+import { type heading, type Content, type paragraph, type image, type embed,  type code } from '../types/blog';
 import Link from '../../components/link.vue';
 
-
-const props = defineProps<{content: Content}>();
+const props = defineProps<{ content: Content }>();
 const component = props.content;
 </script>
