@@ -3,7 +3,7 @@
 		<Paragraph v-if="component.type === 'paragraph'" :content="(component as paragraph)" />
 		<Heading v-if="component.type === 'heading'" :content="(component as heading)" />
 		<Code v-if="component.type === 'code'" :content="(component as code)" />
-		<Quote v-if="component.type === 'quote'" />
+		<Quote v-if="component.type === 'quote'" :content="(component as quote)" />
 		<Image v-if="component.type === 'image'" :content="(component as image)" />
 		<Embed v-if="component.type === 'embed'" :content="(component as embed)" />
 		<List v-if="component.type === 'list'" />
@@ -13,7 +13,7 @@
 
 <script setup lang="ts">
 import { defineProps } from 'vue';
-import { type heading, type Content, type paragraph, type image, type embed,  type code } from '../types/blog';
+import { type heading, type Content, type paragraph, type image, type embed,  type code, type quote } from '../types/blog';
 import Link from '../../components/link.vue';
 
 const props = defineProps<{ content: Content }>();

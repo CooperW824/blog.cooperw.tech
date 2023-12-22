@@ -89,6 +89,7 @@ function testFunction() {
 		{
 			type: 'quote',
 			content: 'This is a quote',
+			quoted: 'GitHub Copilot',
 		},
 		{
 			type: 'list',

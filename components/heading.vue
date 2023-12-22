@@ -20,7 +20,7 @@
 		</h6>
 		<button
 			@click="copyLink"
-			class="ml-2 w-8 h-8 text-primary hover:text-accent duration-300 ease-in-out active:w-10 active:h-10 transition-all"
+			class="ml-2 w-8 h-8 text-primary hover:text-accent duration-300 ease-in-out active:w-10 active:h-10 active:text-secondary transition-all"
 			aria-label="Copy Heading Share Link"
 			title="Copy Heading Share Link"
 		>

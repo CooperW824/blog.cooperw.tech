@@ -47,6 +47,7 @@ export interface code {
 
 export interface quote {
     type: 'quote';
+    quoted: string;
     content: string;
 }
 
