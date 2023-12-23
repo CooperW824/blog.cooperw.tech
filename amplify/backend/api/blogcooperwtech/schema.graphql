@@ -1,0 +1,37 @@
+
+type Post
+	@model
+	@auth(
+		rules: [
+			{ allow: public, provider: iam, operations: [read] }
+			{ allow: owner, provider: cognito, operations: [read, update, delete], ownerField: "author" }
+			{ allow: groups, groups: ["admin"], operations: [create, read, update, delete] }
+			{ allow: groups, groups: ["author"], operations: [create] }
+		]
+	) {
+	id: String! @primaryKey(sortKeyFields: ["createdAt"])
+	createdAt: AWSDateTime!
+	updatedAt: AWSDateTime!
+	title: String!
+	description: String!
+	author: String!
+	tags: [String]
+	picture: String
+	comments: [Comment] @hasMany(indexName: "byPost", fields: ["id"])
+}
+
+type Comment
+	@model
+	@auth(
+		rules: [
+			{ allow: owner, provider: cognito, operations: [create, read, update, delete], ownerField: "author" }
+			{ allow: groups, groups: ["admin"], operations: [delete] }
+      { allow: public, provider: iam, operations: [read]}
+		]
+	) {
+	id: ID!
+	postID: String! @index(name: "byPost", sortKeyFields: ["createdAt"])
+	createdAt: AWSDateTime!
+	content: String!
+	author: String! 
+}
