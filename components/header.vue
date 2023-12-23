@@ -1,6 +1,6 @@
 <template>
 	<div class="w-full bg-base-200 h-12 shadow-md shadow-neutral flex items-center justify-between">
-		<a href="/">
+		<a class="h-full" href="/">
 			<h2
 				class="text-xl sm:text-3xl font-sans font-bold ml-2 bg-clip-text bg-gradient-to-r from-primary to-accent text-transparent h-full flex items-center"
 			>
