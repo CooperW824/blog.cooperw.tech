@@ -21,7 +21,6 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, ref } from 'vue';
 import type { BlogHead } from '~/types/blog';
 
 const props = defineProps<{ blogHead: BlogHead }>();

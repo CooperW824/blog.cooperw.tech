@@ -1,5 +1,8 @@
 <template>
-	<div class="text-primary font-semibold flex w-fit h-fit items-center" :id="component.content.toLocaleLowerCase().replace(/ /g, '-')">
+	<div
+		class="text-primary font-semibold flex w-fit h-fit items-center"
+		:id="component.content.toLocaleLowerCase().replace(/ /g, '-')"
+	>
 		<div v-if="component.size === 2" class="w-fit flex flex-col items-center justify-center">
 			<h2 class="text-3xl mb-0.5">
 				{{ component.content }}
@@ -30,7 +33,6 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps } from 'vue';
 import type { heading } from '~/types/blog';
 
 const props = defineProps<{ content: heading }>();

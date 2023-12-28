@@ -4,7 +4,7 @@
 			<p class="">{{ content.language }}</p>
 			<button
 				@click="handleCopy"
-                title="Copy code to clipboard"
+				title="Copy code to clipboard"
 				class="hover:text-accent w-4 h-4 active:w-5 active:h-5 active:text-secondary transition-all duration-300"
 			>
 				<font-awesome-icon :icon="['fas', 'copy']" class="w-full" />
@@ -17,7 +17,6 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps } from 'vue';
 import { type code } from '../types/blog';
 
 const props = defineProps<{ content: code }>();
