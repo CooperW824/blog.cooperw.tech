@@ -1,7 +1,7 @@
 {
-  "resourceName": "blogcooperwtechposts",
-  "policyUUID": "88321277",
-  "bucketName": "blog-cooperw-tech-posts",
+  "resourceName": "BlogStorage",
+  "policyUUID": "635e1321",
+  "bucketName": "blog-cooperw-tech-storage",
   "storageAccess": "authAndGuest",
   "guestAccess": [
     "READ"
@@ -15,12 +15,9 @@
       "READ",
       "DELETE"
     ],
-    "editor": [
+    "author": [
       "CREATE_AND_UPDATE",
       "READ"
-    ],
-    "author": [
-      "CREATE_AND_UPDATE"
     ]
   }
 }

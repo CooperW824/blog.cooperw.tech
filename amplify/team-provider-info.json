@@ -13,7 +13,14 @@
     },
     "categories": {
       "auth": {
-        "blogAuth": {}
+        "blogAuth": {},
+        "userPoolGroups": {}
+      },
+      "api": {
+        "blogcooperwtech": {}
+      },
+      "storage": {
+        "BlogStorage": {}
       }
     }
   }

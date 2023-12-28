@@ -72,7 +72,7 @@
     }
   },
   "storage": {
-    "blogcooperwtechposts": {
+    "BlogStorage": {
       "dependsOn": [
         {
           "attributes": [
@@ -84,13 +84,6 @@
         {
           "attributes": [
             "adminGroupRole"
-          ],
-          "category": "auth",
-          "resourceName": "userPoolGroups"
-        },
-        {
-          "attributes": [
-            "editorGroupRole"
           ],
           "category": "auth",
           "resourceName": "userPoolGroups"
