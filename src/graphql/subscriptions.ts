@@ -20,6 +20,7 @@ export const onCreatePost = /* GraphQL */ `subscription OnCreatePost(
     title
     description
     author
+    authorName
     published
     tags
     picture
@@ -42,6 +43,7 @@ export const onUpdatePost = /* GraphQL */ `subscription OnUpdatePost(
     title
     description
     author
+    authorName
     published
     tags
     picture
@@ -64,6 +66,7 @@ export const onDeletePost = /* GraphQL */ `subscription OnDeletePost(
     title
     description
     author
+    authorName
     published
     tags
     picture

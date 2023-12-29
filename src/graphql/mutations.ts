@@ -20,6 +20,7 @@ export const createPost = /* GraphQL */ `mutation CreatePost(
     title
     description
     author
+    authorName
     published
     tags
     picture
@@ -42,6 +43,7 @@ export const updatePost = /* GraphQL */ `mutation UpdatePost(
     title
     description
     author
+    authorName
     published
     tags
     picture
@@ -64,6 +66,7 @@ export const deletePost = /* GraphQL */ `mutation DeletePost(
     title
     description
     author
+    authorName
     published
     tags
     picture

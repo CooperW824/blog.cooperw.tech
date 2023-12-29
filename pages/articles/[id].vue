@@ -49,7 +49,7 @@ const getBlogMeta = async (): Promise<BlogHead> => {
 	return {
 		title: data.getPost.title as string,
 		description: data.getPost.description as string,
-		author: data.getPost.author as string,
+		author: data.getPost.authorName as string,
 		date: data.getPost.createdAt as string,
 		tags: data.getPost.tags as string[],
 		picture: data.getPost.picture as string,

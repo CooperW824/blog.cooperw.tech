@@ -16,6 +16,7 @@ type Post
 	title: String!
 	description: String!
 	author: String! 
+	authorName: String!
 	published: Boolean!
 	# Yes author can theoretically change the ownership of the post,
 	# but that should be fine in this case

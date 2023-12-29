@@ -17,6 +17,7 @@ export const getPost = /* GraphQL */ `query GetPost($id: String!) {
     title
     description
     author
+    authorName
     published
     tags
     picture
@@ -46,6 +47,7 @@ export const listPosts = /* GraphQL */ `query ListPosts(
       title
       description
       author
+      authorName
       published
       tags
       picture
@@ -80,6 +82,7 @@ export const postsByTimeCreated = /* GraphQL */ `query PostsByTimeCreated(
       title
       description
       author
+      authorName
       published
       tags
       picture

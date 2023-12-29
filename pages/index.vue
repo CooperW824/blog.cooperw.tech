@@ -60,7 +60,7 @@ const getArticles = async (): Promise<BlogHead[]> => {
 	return data.postsByTimeCreated.items.map((item) => ({
 		title: item?.title as string,
 		description: item?.description as string,
-		author: item?.author as string,
+		author: item?.authorName as string,
 		date: item?.createdAt as string,
 		tags: item?.tags as string[],
 		picture: item?.picture as string,
