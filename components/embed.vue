@@ -5,7 +5,6 @@
 </template>
 
 <script setup lang="ts">
- } from 'vue';
 import { type embed } from '~/types/blog';
 const props = defineProps<{ content: embed }>();
 const content = ref(props.content);

@@ -2,7 +2,7 @@ import type { Blog } from './blog';
 
 export const testBlog: Blog = {
 	head: {
-		id: 'test',
+		id: 'test-blog',
 		title: 'This is a really long title that should wrap ',
 		picture:
 			'https://images.unsplash.com/photo-1702135214290-3d64446356c5?q=80&w=2664&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
