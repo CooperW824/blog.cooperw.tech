@@ -12,7 +12,7 @@
 
 <script setup lang="ts">
 import type { BlogHead } from '~/types/blog';
-import { generateClient } from 'aws-amplify/api';
+import { generateClient, head } from 'aws-amplify/api';
 import * as queries from '~/src/graphql/queries';
 import type { PostsByTimeCreatedQueryVariables } from '~/src/API';
 import { ModelSortDirection } from '~/src/API';
@@ -71,5 +71,14 @@ const getArticles = async (): Promise<BlogHead[]> => {
 
 onMounted(async () => {
 	articles.value = await getArticles();
+});
+
+useHead({
+    title: 'Cooper\'s Blog',
+    meta: [
+        { name: 'description', content: 'Welcome to my blog! A blog about software development, technology, and life.' },
+        { name: 'date', content: new Date().toDateString() },
+        { name: 'keywords', content: 'blog, software, development, technology, life' },
+    ],
 });
 </script>

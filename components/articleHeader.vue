@@ -1,16 +1,16 @@
 <template>
-	<div class="flex flex-col items-center justify-center w-full" id="top">
+	<div class="flex flex-col items-start justify-start w-full" id="top">
+		<NuxtImg :src="blogHead.picture" class="w-full max-h-48" :alt="blogHead.title"></NuxtImg>
 		<h1
-			class="text-4xl h-fit font-heading text-center font-sans font-semibold py-2 bg-clip-text bg-gradient-to-r from-primary to-accent text-transparent flex items-center justify-center mx-2"
+			class="text-4xl w-fit h-fit font-heading text-left font-sans font-semibold pb-1 bg-clip-text bg-gradient-to-r from-primary to-accent text-transparent flex items-center justify-start"
 		>
 			{{ blogHead.title }}
 		</h1>
-		<NuxtImg :src="blogHead.picture" class="w-full max-h-48"></NuxtImg>
-		<div class="flex w-11/12 sm:w-full h-8 items-center justify-center sm:justify-start">
+		<div class="flex w-11/12 sm:w-full h-fit items-center justify-center sm:justify-start">
 			<p class="mr-4 text-primary">{{ blogHead.author }}</p>
 			<p class="text-primary">{{ new Date(blogHead.date).toDateString() }}</p>
 		</div>
-		<div class="flex w-11/12 sm:w-full h-fit flex-wrap justify-center items-center my-1">
+		<div class="flex w-11/12 sm:w-full h-fit flex-wrap justify-start items-center my-1">
 			<p class="mr-1">Tags:</p>
 			<p class="m-1 px-4 py-1 bg-base-200 rounded-lg" v-for="tag in blogHead.tags" :key="tag">{{ tag }}</p>
 		</div>
