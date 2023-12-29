@@ -1,7 +1,7 @@
 <template>
 	<a :href="`articles/${content.id}`" class="w-80 h-fit m-4 rounded-xl bg-base-200 shadow-xl shadow-neutral flex flex-col items-center justify-start">
 		<NuxtImg :src="content.picture" class="w-full max-h-48 rounded-t-xl"></NuxtImg>
-        <div>
+        <div class="flex flex-col w-full">
             <div class="flex w-full items-center justify-around">
                 <p class="text-primary">{{ content.author }}</p>
                 <p class="text-primary">{{ new Date(content.date).toDateString() }}</p>
@@ -19,6 +19,9 @@ import { type BlogHead } from '~/types/blog';
 const props = defineProps<{ content: BlogHead }>();
 const content = ref(props.content);
 const truncatedDescription = computed(() => {
+    if (content.value.description.length < 100) {
+        return content.value.description;
+    }
     return content.value.description.slice(0, 100).concat('...');
 });
 </script>
