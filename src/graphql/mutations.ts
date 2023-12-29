@@ -14,11 +14,13 @@ export const createPost = /* GraphQL */ `mutation CreatePost(
 ) {
   createPost(input: $input, condition: $condition) {
     id
+    type
     createdAt
     updatedAt
     title
     description
     author
+    published
     tags
     picture
     __typename
@@ -34,11 +36,13 @@ export const updatePost = /* GraphQL */ `mutation UpdatePost(
 ) {
   updatePost(input: $input, condition: $condition) {
     id
+    type
     createdAt
     updatedAt
     title
     description
     author
+    published
     tags
     picture
     __typename
@@ -54,11 +58,13 @@ export const deletePost = /* GraphQL */ `mutation DeletePost(
 ) {
   deletePost(input: $input, condition: $condition) {
     id
+    type
     createdAt
     updatedAt
     title
     description
     author
+    published
     tags
     picture
     __typename

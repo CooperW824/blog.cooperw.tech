@@ -31,6 +31,7 @@ export interface image {
     src: string;
     alt: string;
     caption: string;
+    s3: boolean; // if true, src is an s3 key
 }
 
 export interface embed {

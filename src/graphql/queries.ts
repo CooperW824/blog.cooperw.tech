@@ -8,14 +8,16 @@ type GeneratedQuery<InputType, OutputType> = string & {
   __generatedQueryOutput: OutputType;
 };
 
-export const getPost = /* GraphQL */ `query GetPost($id: String!, $createdAt: AWSDateTime!) {
-  getPost(id: $id, createdAt: $createdAt) {
+export const getPost = /* GraphQL */ `query GetPost($id: String!) {
+  getPost(id: $id) {
     id
+    type
     createdAt
     updatedAt
     title
     description
     author
+    published
     tags
     picture
     __typename
@@ -24,7 +26,6 @@ export const getPost = /* GraphQL */ `query GetPost($id: String!, $createdAt: AW
 ` as GeneratedQuery<APITypes.GetPostQueryVariables, APITypes.GetPostQuery>;
 export const listPosts = /* GraphQL */ `query ListPosts(
   $id: String
-  $createdAt: ModelStringKeyConditionInput
   $filter: ModelPostFilterInput
   $limit: Int
   $nextToken: String
@@ -32,7 +33,6 @@ export const listPosts = /* GraphQL */ `query ListPosts(
 ) {
   listPosts(
     id: $id
-    createdAt: $createdAt
     filter: $filter
     limit: $limit
     nextToken: $nextToken
@@ -40,11 +40,13 @@ export const listPosts = /* GraphQL */ `query ListPosts(
   ) {
     items {
       id
+      type
       createdAt
       updatedAt
       title
       description
       author
+      published
       tags
       picture
       __typename
@@ -54,3 +56,40 @@ export const listPosts = /* GraphQL */ `query ListPosts(
   }
 }
 ` as GeneratedQuery<APITypes.ListPostsQueryVariables, APITypes.ListPostsQuery>;
+export const postsByTimeCreated = /* GraphQL */ `query PostsByTimeCreated(
+  $type: String!
+  $createdAt: ModelStringKeyConditionInput
+  $sortDirection: ModelSortDirection
+  $filter: ModelPostFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  postsByTimeCreated(
+    type: $type
+    createdAt: $createdAt
+    sortDirection: $sortDirection
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      id
+      type
+      createdAt
+      updatedAt
+      title
+      description
+      author
+      published
+      tags
+      picture
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.PostsByTimeCreatedQueryVariables,
+  APITypes.PostsByTimeCreatedQuery
+>;

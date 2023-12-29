@@ -14,11 +14,13 @@ export const onCreatePost = /* GraphQL */ `subscription OnCreatePost(
 ) {
   onCreatePost(filter: $filter, author: $author) {
     id
+    type
     createdAt
     updatedAt
     title
     description
     author
+    published
     tags
     picture
     __typename
@@ -34,11 +36,13 @@ export const onUpdatePost = /* GraphQL */ `subscription OnUpdatePost(
 ) {
   onUpdatePost(filter: $filter, author: $author) {
     id
+    type
     createdAt
     updatedAt
     title
     description
     author
+    published
     tags
     picture
     __typename
@@ -54,11 +58,13 @@ export const onDeletePost = /* GraphQL */ `subscription OnDeletePost(
 ) {
   onDeletePost(filter: $filter, author: $author) {
     id
+    type
     createdAt
     updatedAt
     title
     description
     author
+    published
     tags
     picture
     __typename

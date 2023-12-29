@@ -1,6 +1,6 @@
-import type { Blog } from './blog';
+const {writeFileSync } = require('fs');
 
-export const testBlog: Blog = {
+const testblog = {
 	head: {
 		id: 'test',
 		title: 'This is a really long title that should wrap ',
@@ -115,3 +115,5 @@ function testFunction() {
 		},
 	],
 };
+
+writeFileSync('test_blog.json', JSON.stringify(testblog));

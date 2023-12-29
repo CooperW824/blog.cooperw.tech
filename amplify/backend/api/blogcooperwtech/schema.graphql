@@ -9,12 +9,14 @@ type Post
 			{ allow: groups, groups: ["author"], operations: [create] }
 		]
 	) {
-	id: String! @primaryKey(sortKeyFields: ["createdAt"])
-	createdAt: AWSDateTime!
+	id: String! @primaryKey
+	type: String! @index(queryField: "postsByTimeCreated", sortKeyFields: ["createdAt"])
+	createdAt: AWSDateTime! 
 	updatedAt: AWSDateTime!
 	title: String!
 	description: String!
 	author: String! 
+	published: Boolean!
 	# Yes author can theoretically change the ownership of the post,
 	# but that should be fine in this case
 	tags: [String]

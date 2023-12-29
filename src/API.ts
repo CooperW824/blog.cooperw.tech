@@ -4,20 +4,25 @@
 
 export type CreatePostInput = {
   id?: string | null,
+  type: string,
   createdAt?: string | null,
   updatedAt?: string | null,
   title: string,
   description: string,
   author: string,
+  published: boolean,
   tags?: Array< string | null > | null,
   picture?: string | null,
 };
 
 export type ModelPostConditionInput = {
+  type?: ModelStringInput | null,
+  createdAt?: ModelStringInput | null,
   updatedAt?: ModelStringInput | null,
   title?: ModelStringInput | null,
   description?: ModelStringInput | null,
   author?: ModelStringInput | null,
+  published?: ModelBooleanInput | null,
   tags?: ModelStringInput | null,
   picture?: ModelStringInput | null,
   and?: Array< ModelPostConditionInput | null > | null,
@@ -65,51 +70,53 @@ export type ModelSizeInput = {
   between?: Array< number | null > | null,
 };
 
+export type ModelBooleanInput = {
+  ne?: boolean | null,
+  eq?: boolean | null,
+  attributeExists?: boolean | null,
+  attributeType?: ModelAttributeTypes | null,
+};
+
 export type Post = {
   __typename: "Post",
   id: string,
+  type: string,
   createdAt: string,
   updatedAt: string,
   title: string,
   description: string,
   author: string,
+  published: boolean,
   tags?: Array< string | null > | null,
   picture?: string | null,
 };
 
 export type UpdatePostInput = {
   id: string,
-  createdAt: string,
+  type?: string | null,
+  createdAt?: string | null,
   updatedAt?: string | null,
   title?: string | null,
   description?: string | null,
   author?: string | null,
+  published?: boolean | null,
   tags?: Array< string | null > | null,
   picture?: string | null,
 };
 
 export type DeletePostInput = {
   id: string,
-  createdAt: string,
-};
-
-export type ModelStringKeyConditionInput = {
-  eq?: string | null,
-  le?: string | null,
-  lt?: string | null,
-  ge?: string | null,
-  gt?: string | null,
-  between?: Array< string | null > | null,
-  beginsWith?: string | null,
 };
 
 export type ModelPostFilterInput = {
   id?: ModelStringInput | null,
+  type?: ModelStringInput | null,
   createdAt?: ModelStringInput | null,
   updatedAt?: ModelStringInput | null,
   title?: ModelStringInput | null,
   description?: ModelStringInput | null,
   author?: ModelStringInput | null,
+  published?: ModelBooleanInput | null,
   tags?: ModelStringInput | null,
   picture?: ModelStringInput | null,
   and?: Array< ModelPostFilterInput | null > | null,
@@ -129,12 +136,24 @@ export type ModelPostConnection = {
   nextToken?: string | null,
 };
 
+export type ModelStringKeyConditionInput = {
+  eq?: string | null,
+  le?: string | null,
+  lt?: string | null,
+  ge?: string | null,
+  gt?: string | null,
+  between?: Array< string | null > | null,
+  beginsWith?: string | null,
+};
+
 export type ModelSubscriptionPostFilterInput = {
   id?: ModelSubscriptionStringInput | null,
+  type?: ModelSubscriptionStringInput | null,
   createdAt?: ModelSubscriptionStringInput | null,
   updatedAt?: ModelSubscriptionStringInput | null,
   title?: ModelSubscriptionStringInput | null,
   description?: ModelSubscriptionStringInput | null,
+  published?: ModelSubscriptionBooleanInput | null,
   tags?: ModelSubscriptionStringInput | null,
   picture?: ModelSubscriptionStringInput | null,
   and?: Array< ModelSubscriptionPostFilterInput | null > | null,
@@ -156,6 +175,11 @@ export type ModelSubscriptionStringInput = {
   notIn?: Array< string | null > | null,
 };
 
+export type ModelSubscriptionBooleanInput = {
+  ne?: boolean | null,
+  eq?: boolean | null,
+};
+
 export type CreatePostMutationVariables = {
   input: CreatePostInput,
   condition?: ModelPostConditionInput | null,
@@ -165,11 +189,13 @@ export type CreatePostMutation = {
   createPost?:  {
     __typename: "Post",
     id: string,
+    type: string,
     createdAt: string,
     updatedAt: string,
     title: string,
     description: string,
     author: string,
+    published: boolean,
     tags?: Array< string | null > | null,
     picture?: string | null,
   } | null,
@@ -184,11 +210,13 @@ export type UpdatePostMutation = {
   updatePost?:  {
     __typename: "Post",
     id: string,
+    type: string,
     createdAt: string,
     updatedAt: string,
     title: string,
     description: string,
     author: string,
+    published: boolean,
     tags?: Array< string | null > | null,
     picture?: string | null,
   } | null,
@@ -203,11 +231,13 @@ export type DeletePostMutation = {
   deletePost?:  {
     __typename: "Post",
     id: string,
+    type: string,
     createdAt: string,
     updatedAt: string,
     title: string,
     description: string,
     author: string,
+    published: boolean,
     tags?: Array< string | null > | null,
     picture?: string | null,
   } | null,
@@ -215,18 +245,19 @@ export type DeletePostMutation = {
 
 export type GetPostQueryVariables = {
   id: string,
-  createdAt: string,
 };
 
 export type GetPostQuery = {
   getPost?:  {
     __typename: "Post",
     id: string,
+    type: string,
     createdAt: string,
     updatedAt: string,
     title: string,
     description: string,
     author: string,
+    published: boolean,
     tags?: Array< string | null > | null,
     picture?: string | null,
   } | null,
@@ -234,7 +265,6 @@ export type GetPostQuery = {
 
 export type ListPostsQueryVariables = {
   id?: string | null,
-  createdAt?: ModelStringKeyConditionInput | null,
   filter?: ModelPostFilterInput | null,
   limit?: number | null,
   nextToken?: string | null,
@@ -247,11 +277,42 @@ export type ListPostsQuery = {
     items:  Array< {
       __typename: "Post",
       id: string,
+      type: string,
       createdAt: string,
       updatedAt: string,
       title: string,
       description: string,
       author: string,
+      published: boolean,
+      tags?: Array< string | null > | null,
+      picture?: string | null,
+    } | null >,
+    nextToken?: string | null,
+  } | null,
+};
+
+export type PostsByTimeCreatedQueryVariables = {
+  type: string,
+  createdAt?: ModelStringKeyConditionInput | null,
+  sortDirection?: ModelSortDirection | null,
+  filter?: ModelPostFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type PostsByTimeCreatedQuery = {
+  postsByTimeCreated?:  {
+    __typename: "ModelPostConnection",
+    items:  Array< {
+      __typename: "Post",
+      id: string,
+      type: string,
+      createdAt: string,
+      updatedAt: string,
+      title: string,
+      description: string,
+      author: string,
+      published: boolean,
       tags?: Array< string | null > | null,
       picture?: string | null,
     } | null >,
@@ -268,11 +329,13 @@ export type OnCreatePostSubscription = {
   onCreatePost?:  {
     __typename: "Post",
     id: string,
+    type: string,
     createdAt: string,
     updatedAt: string,
     title: string,
     description: string,
     author: string,
+    published: boolean,
     tags?: Array< string | null > | null,
     picture?: string | null,
   } | null,
@@ -287,11 +350,13 @@ export type OnUpdatePostSubscription = {
   onUpdatePost?:  {
     __typename: "Post",
     id: string,
+    type: string,
     createdAt: string,
     updatedAt: string,
     title: string,
     description: string,
     author: string,
+    published: boolean,
     tags?: Array< string | null > | null,
     picture?: string | null,
   } | null,
@@ -306,11 +371,13 @@ export type OnDeletePostSubscription = {
   onDeletePost?:  {
     __typename: "Post",
     id: string,
+    type: string,
     createdAt: string,
     updatedAt: string,
     title: string,
     description: string,
     author: string,
+    published: boolean,
     tags?: Array< string | null > | null,
     picture?: string | null,
   } | null,
