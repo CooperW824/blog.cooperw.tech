@@ -1,5 +1,5 @@
 <template>
-	<div class="flex flex-col w-full sm:w-11/12 lg:w-1/2 h-fit ">
+	<div class="flex flex-col w-full sm:w-11/12 lg:w-1/2 h-fit">
 		<div class="flex w-full items-center">
 			<ArticleHeader :blog-head="blogMeta" />
 		</div>
@@ -66,6 +66,7 @@ useHead({
 		{ name: 'author', content: blogMeta.value.author },
 		{ name: 'date', content: blogMeta.value.date },
 		{ name: 'keywords', content: blogMeta.value.tags.join(', ') },
+		{ name: 'og:picture', content: blogMeta.value.picture },
 	],
 	bodyAttrs: {
 		class: 'test',
