@@ -1,5 +1,5 @@
 <template>
-	<div class="flex flex-col w-full h-fit items-center justify-center">
+	<div class="flex flex-col w-full h-fit items-center justify-center my-1">
 		<div class="flex w-full h-8 bg-base-200 justify-between items-center rounded-t-lg px-4">
 			<p class="">{{ content.language }}</p>
 			<button

@@ -22,9 +22,9 @@ module.exports = {
 				light: {
 					primary: '#07337d',
 					secondary: '#7a99d6',
-					accent: '#047baf',
+					accent: '#17aaeb',
 					neutral: '#1f232d',
-					'base-100': '#dbdee6',
+					'base-100': '#ffffff',
 				},
 				dark: {
 					primary: '#82aef8',
