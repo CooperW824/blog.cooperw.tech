@@ -1,6 +1,6 @@
 <template>
 	<div class="flex flex-col items-center sm:items-start justify-start w-full" id="top">
-		<NuxtImg :src="blogHead.picture" class="w-full max-h-48" :alt="blogHead.title"></NuxtImg>
+		<NuxtImg :src="blogHead.picture" class="w-full max-h-48 object-contain" :alt="blogHead.title"></NuxtImg>
 		<h1
 			class="text-4xl w-fit h-fit font-heading text-left font-sans font-semibold pb-1 bg-clip-text bg-gradient-to-r from-primary to-accent text-transparent flex items-center justify-start"
 		>

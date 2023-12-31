@@ -1,6 +1,6 @@
 <template>
 	<a :href="`articles/${content.id}`" class="w-80 h-fit m-4 rounded-xl bg-base-200 shadow-xl shadow-neutral flex flex-col items-center justify-start">
-		<NuxtImg :src="content.picture" class="w-full max-h-48 rounded-t-xl"></NuxtImg>
+		<NuxtImg :src="content.picture" class="w-full max-h-48 rounded-t-xl object-contain"></NuxtImg>
         <div class="flex flex-col w-full">
             <div class="flex w-full items-center justify-around">
                 <p class="text-primary">{{ content.author }}</p>
