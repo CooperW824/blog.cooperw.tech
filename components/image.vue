@@ -1,6 +1,6 @@
 <template>
 	<div class="flex w-full items-center justify-center flex-col my-4">
-		<NuxtImg :src="src" :alt="img.alt" class="w-full"></NuxtImg>
+			<NuxtImg :src="src" :alt="img.alt" class="w-fit max-h-60 "></NuxtImg>
 		<p class="mt-1">{{ img.caption }}</p>
 	</div>
 </template>
@@ -24,6 +24,7 @@ const getImage = async (): Promise<string> => {
 			options: {
 				accessLevel: 'guest',
 				expiresIn: 60 * 5,
+				validateObjectExistence: true
 			},
 		});
 
@@ -34,4 +35,8 @@ const getImage = async (): Promise<string> => {
 const props = defineProps<{ content: image }>();
 const img = ref(props.content);
 const src = ref(await getImage());
+
+onMounted(async () => {
+	
+});
 </script>
